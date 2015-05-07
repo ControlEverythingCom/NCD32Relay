@@ -1,6 +1,6 @@
 # About
 
-This Library is intended for use with the NCD 16 Channel Spark compatible relay controller.
+This Library is intended for use with the NCD 32 Channel Spark compatible relay controller.
 
 The intention of this library is to make use of the NCD 32 channel relay controller with Spark development web IDE as simple as possible for users.
 ###Developer information
