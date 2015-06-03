@@ -3,5 +3,5 @@
     "version": "0.0.1",
     "author": "Travis Elliott <travis@controlanything.com>",
     "license": "GNU",
-    "description": "Library intended for the operation of NCD 16 channel Spark compatible Relay Controller"
+    "description": "Library intended for the operation of NCD 32 channel Spark compatible Relay Controller"
 }
