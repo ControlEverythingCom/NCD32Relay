@@ -16,14 +16,14 @@ NCD has been designing and manufacturing computer control products since 1995.  
 
 ### How to use this library
 
-The libary must be imported into your application.  This can be done through the Spark WEB IDE by selecting Libraries, then select the NCD16Relay.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Spark's documentation] [sparkIncludeLibrary] 
+The libary must be imported into your application.  This can be done through the Spark WEB IDE by selecting Libraries, then select the NCD32Relay.  Click Include in App button.  Select the App you want to include the library in.  Finally click Add to this app.  For more information see [Spark's documentation] [sparkIncludeLibrary] 
 
 ### Example use
 
 Once the Library is included in your applicaiton you should see an include statement at the top like this:
 ```cpp
 //This #include statement was automatically added by the Spark IDE.
-#include "NCD32Relay/NCD16Relay.h"
+#include "NCD32Relay/NCD32Relay.h"
 ```
 Now you need to instanciate an object of the library for use in your application like this:
 ```cpp
@@ -60,24 +60,24 @@ relayController.turnOffAllRelays(2);
 void setAddress(int a0, int a1);
 ```
 >Must be called first before using the object.  This method should also be called any time communication with
->the controller is lost or broken to recover communication  This method accepts three int arguments.  This
->tells the Library what address to direct commands to.  a0, a1, and a2 ints are representations of the three
+>the controller is lost or broken to recover communication  This method accepts two int arguments.  This
+>tells the Library what address to direct commands to.  a0 and a1 ints are representations of the two
 >jumpers on the 32 channel relay controller which are labeled on the board A0 and A1.  If the jumper is
 >installed then that int in this call should be set to 1.  If it is not installed then the int should be set to 
->0.  So if I have A0 and A1 installed I would call relayController.setAddress(1, 0, 1).
+So if I have A0 and A1 installed I would call ```relayController.setAddress(1, 1).```
 
 
 ```cpp
 void turnOnRelay(int Relay);
 ```
->This method accepts one int argument.  Valid int arguments 1-32.  A call to this method will turn off the
+>This method accepts one int argument.  Valid int arguments 1-32.  A call to this method will turn on the
 >relay indicated by the passed int argument.
 
 
 ```cpp
 void turnOffRelay(int Relay);
 ```
->This method accepts one int argument.  Valid int arguments 1-32.  A call to this method will turn on the relay
+>This method accepts one int argument.  Valid int arguments 1-32.  A call to this method will turn off the relay
 >indicated by the passed int argument.
 
 
@@ -121,7 +121,7 @@ void toggleRelay(int relay);
 void setBankStatus(int status, int bank);
 ```
 >This method accepts two int arguments.  Valid status int arguments 0-255.  Valid bank arguments 1-4.  A call
->to this method will set the status of all relays in the specified bank(1-4) to the status byte passed in>
+>to this method will set the status of all relays in the specified bank(1-4) to the status byte passed in
 the second argument(status).  Each relay in the bank(total of 8) are represented as bits in the status
 >argument.
 
@@ -163,35 +163,6 @@ bool initialized;
 >be checked often throughout your application.  If communication to the board is lost for any reason this
 >boolean variable will return false.  If all is well it will return true.
 
-
-```cpp
-byte bankOneStatus;
-```
->This byte will indicate the current status of relays in bank 1.  This byte can be checked at any point during
->the application rather than making method calls to read relay status.  Reading relay status through methods
->however is more accurate so use the methods when possible.
-
-
-```cpp
-byte bankTwoStatus;
-```
->This byte will indicate the current status of relays in bank 2.  This byte can be checked at any point during
->the application rather than making method calls to read relay status.  Reading relay status through methods
->however is more accurate so use the methods when possible.
-
-```cpp
-byte bankThreeStatus;
-```
->This byte will indicate the current status of relays in bank 3.  This byte can be checked at any point during
->the application rather than making method calls to read relay status.  Reading relay status through methods
->however is more accurate so use the methods when possible.
-
-```cpp
-byte bankFourStatus;
-```
->This byte will indicate the current status of relays in bank 2.  This byte can be checked at any point during
->the application rather than making method calls to read relay status.  Reading relay status through methods
->however is more accurate so use the methods when possible.
 
 License
 ----
