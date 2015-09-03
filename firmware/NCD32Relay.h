@@ -1,5 +1,6 @@
 #include "spark_wiring_i2c.h"
 #include "spark_wiring_usbserial.h"
+#include "spark_wiring_constants.h"
 
 class NCD32Relay{
 public:
@@ -36,7 +37,7 @@ public:
     
 private:
     //internal use method for refreshing bank status variables
-    void readStatus(byte addr);
+    void readStatus(int addr);
     //Status of relays in bank 1
     byte bankOneStatus;
     //Status of relays in bank 2

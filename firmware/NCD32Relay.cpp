@@ -87,9 +87,9 @@ retryAddress2:
 }
 
 void NCD32Relay::turnOnRelay(int relay){
-    byte bankValue;
-    byte registerAddress;
-    byte addr;
+    byte bankValue = 0;
+    byte registerAddress = 0;
+    byte addr = 0;
     if(relay <= 8){
         bankValue = bankOneStatus;
         addr = address;
@@ -170,9 +170,9 @@ turnOnRelayRetry:
 }
 
 void NCD32Relay::turnOffRelay(int relay){
-    byte bankValue;
-    byte registerAddress;
-    byte addr;
+    byte bankValue = 0;
+    byte registerAddress = 0;
+    byte addr = 0;
     if(relay <= 8){
         bankValue = bankOneStatus;
         addr = address;
@@ -359,7 +359,7 @@ turnOffAllRelaysRetry2:
 }
 
 void NCD32Relay::turnOnAllRelays(int bank){
-    byte addr;
+    byte addr = 0;
     if(bank == 1 || bank == 2){
         addr = address;
     }else{
@@ -398,7 +398,7 @@ turnOffAllRelayssInBankRetry:
 }
 
 void NCD32Relay::turnOffAllRelays(int bank){
-    byte addr;
+    byte addr = 0;
     if(bank == 1 || bank == 2){
         addr = address;
     }else{
@@ -437,9 +437,9 @@ turnOnAllRelayssInBankRetry:
 }
 
 void NCD32Relay::toggleRelay(int relay){
-    byte bankValue;
-    byte registerAddress;
-    byte addr;
+    byte bankValue = 0;
+    byte registerAddress = 0;
+    byte addr = 0;
     if(relay <= 8){
         bankValue = bankOneStatus;
         addr = address;
@@ -612,9 +612,9 @@ setAllRelayStatus2:
 }
 
 int NCD32Relay::readRelayStatus(int relay){
-    byte registerAddress;
-    int value;
-    byte addr;
+    byte registerAddress = 0;
+    int value = 0;
+    int addr = 0;
     if(relay <= 8){
         addr = address;
         registerAddress = 18;
@@ -697,7 +697,7 @@ getRelayStatusRetry:
 }
 
 int NCD32Relay::readBankStatus(int bank){
-    byte addr;
+    int addr = 0;
     if(bank == 1 || bank == 2){
         addr = address;
     }else{
@@ -737,7 +737,7 @@ readBankStatusRetry:
     return bankStatus;
 }
 
-void NCD32Relay::readStatus(byte addr){
+void NCD32Relay::readStatus(int addr){
 readBankOneRetry:
     //Open Connection to controller
     Wire.beginTransmission(addr);
