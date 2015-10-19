@@ -1,5 +1,5 @@
 /* Includes ------------------------------------------------------------------*/
-#include "application.h"
+#include "NCD32Relay/NCD32Relay.h"
 
 SYSTEM_MODE(MANUAL);
 
