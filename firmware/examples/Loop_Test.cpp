@@ -1,7 +1,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "NCD32Relay/NCD32Relay.h"
 
-SYSTEM_MODE(MANUAL);
+SYSTEM_MODE(AUTOMATIC);
 
 NCD32Relay relayController;
 
